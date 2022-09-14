@@ -1,0 +1,13 @@
+image: ubuntu:18.04
+before_script:
+  - apt-get update -qy
+  - apt-get install -y lftp
+
+deploy:
+  script:
+    - lftp -e "open projects.bit-academy.nl/~cryptostalkers/; user $FTP_USERNAME $FTP_PASSWORD; mirror -X .* -X .*/ --reverse --verbose --delete; bye"
+  tags:
+    - docker
+    - linux
+  only:
+    - master

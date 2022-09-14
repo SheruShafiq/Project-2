@@ -1,0 +1,11 @@
+CREATE database IF NOT EXISTS `scrum2`;
+
+CREATE table `pasteSpace`
+(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+author VARCHAR(50) NOT NULL,
+title VARCHAR(50) NOT NULL,
+language VARCHAR(20),
+paste TEXT NOT NULL, 
+url VARCHAR(100)
+);
